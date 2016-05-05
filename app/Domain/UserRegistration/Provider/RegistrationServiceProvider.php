@@ -38,6 +38,7 @@ class RegistrationServiceProvider extends ServiceProvider
     {
         return [
             UserRepositoryInterface::class,
+            UserRegistrationInterface::class,
         ];
     }
 }
