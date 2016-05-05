@@ -1,5 +1,4 @@
 <?php
-declare (strict_types = 1);
 
 namespace App\Domain\UserRegistration\Repository;
 
@@ -10,13 +9,6 @@ use App\Domain\UserRegistration\Entity\User;
  */
 interface UserRepositoryInterface
 {
-    /**
-     * @param string $mail
-     *
-     * @return mixed
-     */
-    public function findByMail(string $mail);
-
     /**
      * @param array $attributes
      *
@@ -36,7 +28,7 @@ interface UserRepositoryInterface
      *
      * @return mixed
      */
-    public function find(int $userId);
+    public function find($userId);
 
     /**
      * @param User $user

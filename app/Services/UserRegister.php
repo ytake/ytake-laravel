@@ -1,5 +1,4 @@
 <?php
-declare (strict_types = 1);
 
 namespace App\Services;
 
@@ -40,7 +39,7 @@ class UserRegister
      * @param string $email
      * @return void
      */
-    public function register(string $name, string $email)
+    public function register($name, $email)
     {
         if ($this->domain->register(new User($name, $email))) {
             $this->mailer->send('mail.template', [], function () {

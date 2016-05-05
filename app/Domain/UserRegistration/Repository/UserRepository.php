@@ -25,18 +25,6 @@ class UserRepository implements UserRepositoryInterface
     }
 
     /**
-     * @Cacheable(cacheName="user:email",key="#mail")
-     * @param string $mail
-     *
-     * @return mixed
-     */
-    public function findByMail(string $mail)
-    {
-        return $this->entityManager->getRepository(User::class)
-            ->findOneBy(['email' => $mail]);
-    }
-
-    /**
      * @param array $criteria
      *
      * @return mixed
@@ -53,7 +41,7 @@ class UserRepository implements UserRepositoryInterface
      *
      * @return mixed
      */
-    public function find(int $userId)
+    public function find($userId)
     {
         return $this->entityManager->find(User::class, $userId);
     }
@@ -63,7 +51,7 @@ class UserRepository implements UserRepositoryInterface
      *
      * @return int
      */
-    public function add(User $user) : int
+    public function add(User $user)
     {
         $this->entityManager->persist($user);
         $this->entityManager->flush();
